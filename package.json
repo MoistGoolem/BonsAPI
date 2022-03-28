@@ -1,0 +1,36 @@
+{
+  "name": "bonsaigraphql",
+  "version": "1.0.0",
+  "description": "A GraphQL server containing tree species used for bonsai and it's features and descriptions.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoistGoolem/BonsaiGraphQL.git"
+  },
+  "author": "Oliver Ramstedt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MoistGoolem/BonsaiGraphQL/issues"
+  },
+  "homepage": "https://github.com/MoistGoolem/BonsaiGraphQL#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.5.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.0",
+    "@graphql-tools/graphql-file-loader": "^7.3.7",
+    "@graphql-tools/load": "^7.5.5",
+    "@graphql-tools/schema": "^8.3.5",
+    "graphql-import": "^1.0.2",
+    "graphql-tools": "^8.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
