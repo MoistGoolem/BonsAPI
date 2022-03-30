@@ -1,10 +1,9 @@
 const treesResolver = require('./trees');
 const authResolver = require('./auth');
 
-
 const rootResolver = {
     ...authResolver,
-    ...treesResolver,
+    ...treesResolver
 };
 
 module.exports = rootResolver;

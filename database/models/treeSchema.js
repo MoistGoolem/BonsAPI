@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const treeSchema = new Schema({
     name: {
-        type: String,
+        type: String
     },
     creator: {
         type: Schema.Types.ObjectId,
