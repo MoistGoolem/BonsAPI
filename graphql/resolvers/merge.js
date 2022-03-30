@@ -1,12 +1,11 @@
-const Event = require('../../database/models/event');
-const User = require('../../database/models/user');
-const { dateToString } = require('../../helpers/date');
+const Tree = require('../../database/models/treeSchema');
+const User = require('../../database/models/userSchema');
 
-const events = async eventIds => {
+const trees = async treeIds => {
   try {
-    const events = await Event.find({ _id: { $in: eventIds } })
-    return events.map(event => {
-      return transformEvent(event);
+    const trees = await Tree.find({ _id: { $in: treeIds } })
+    return trees.map(tree => {
+      return transformTree(tree);
     });
   } catch (err) {
     console.log(err);
@@ -14,10 +13,10 @@ const events = async eventIds => {
   }
 };
 
-const singleEvent = async eventId => {
+const singleTree = async treeId => {
   try {
-    const event = await Event.findById(eventId);
-    return transformEvent(event);
+    const tree = await Tree.findById(treeId);
+    return transformTree(tree);
 
   } catch (err) {
     console.log(err);
@@ -31,7 +30,7 @@ const user = async userId => {
     return {
       ...user._doc,
       _id: user.id,
-      createdEvents: events.bind(this, user._doc.createdEvents)
+      createdTrees: trees.bind(this, user._doc.createdTrees)
     };
   }
   catch (err) {
@@ -40,25 +39,12 @@ const user = async userId => {
   }
 }
 
-const transformEvent = event => {
+const transformTree = tree => {
   return {
-    ...event._doc,
-    _id: event.id,
-    date: dateToString(event._doc.date),
-    creator: user.bind(this, event.creator)
+    ...tree._doc,
+    _id: tree.id,
+    creator: user.bind(this, tree.creator)
   };
 };
 
-const transformBooking = booking => {
-  return {
-    ...booking._doc,
-    _id: booking.id,
-    user: user.bind(this, booking._doc.user),
-    event: singleEvent.bind(this, booking._doc.event),
-    createdAt: dateToString(booking._doc.createdAt),
-    updatedAt: dateToString(booking._doc.updatedAt)
-  };
-};
-
-exports.transformBooking = transformBooking;
-exports.transformEvent = transformEvent;
+exports.transformTree = transformTree;

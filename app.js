@@ -35,7 +35,7 @@ mongoose.connect(
 )
   .then(() => {
     app.listen(PORT);
-    console.log(`Connected to db. Running on port ${PORT}. GraphiQL on localhost:3000/graphql`)
+    console.log(`Connected to db. Running on port ${PORT}. Graphiql on localhost:3000/graphql`)
   })
   .catch(err => {
     console.log(err)

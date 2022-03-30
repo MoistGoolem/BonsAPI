@@ -1,0 +1,34 @@
+QUERIES:
+
+query Login {
+  login(email: "olra0312@gmail.com", password: "Ramstedt123") {
+    token
+  }
+}
+
+
+{
+    trees {
+        name
+        creator {
+            email
+        }
+    }
+}
+
+
+MUTATIONS:
+
+mutation CreateTree($tree: TreeInput!) {
+  createTree(treeInput: $tree) {
+    name
+    date
+  }
+}
+
+mutation CreateUser($user: UserInput!) {
+  createUser(userInput: $user) {
+    email
+    password
+  }
+}

@@ -1,17 +1,8 @@
-type Booking {
-    _id: ID!
-    event: Event!
-    user: User!
-    createdAt: String!
-    updatedAt: String!
-}
 
-type Event {
+#####*ROOT*#####
+type Tree {
     _id: ID!
-    title: String!
-    description: String!
-    price: Float!
-    date: String!
+    name: String!
     creator: User!
 }
 
@@ -19,7 +10,7 @@ type User {
     _id: ID!
     email: String!
     password: String
-    createdEvents: [Event!]
+    createdTrees: [Tree!]
 }
 
 type AuthData {
@@ -28,11 +19,8 @@ type AuthData {
     tokenExpiration: Int!
 }
 
-input EventInput {
-    title: String! 
-    description: String!
-    price: Float!
-    date: String!
+input TreeInput {
+    name: String! 
 }
 
 input UserInput {
@@ -41,16 +29,13 @@ input UserInput {
 }
 
 type RootQuery {
-    events: [Event!]!
-    bookings: [Booking!]!
+    trees: [Tree!]!
     login(email: String!, password: String!): AuthData!
 }
 
 type RootMutation {
-    createEvent(eventInput: EventInput): Event
+    createTree(treeInput: TreeInput): Tree
     createUser(userInput: UserInput): User
-    bookEvent(eventId: ID!): Booking!
-    cancelBooking(bookingId: ID!): Event!
 }
 
 schema {
@@ -58,3 +43,92 @@ schema {
     mutation: RootMutation
 }
     
+
+
+# #*TREE GROUPS*#
+# type Conifers {
+#     name: {
+#         species: String!
+#         genus: String!
+#         family: String!
+#         cultivar: String
+#         variety: String
+#     }
+#     description: String
+#     deciduous: Boolean!
+#     evergreen: Boolean!
+#     care: Care!
+#     characteristics: Characteristics
+#     propagation: Propagation
+#     grafting: String
+#     pests: [Pests]
+#     diseases: [Diseases]
+#     availability: String
+# }
+# type Broadleaf {
+#     name: {
+#         species: Species!
+#         genus: Genus!
+#         family: Family!
+#         cultivar: String
+#         variety: String
+#     }
+#     description: String
+#     deciduous: Boolean!
+#     evergreen: Boolean!
+#     care: Care!
+#     characteristics: Characteristics
+#     propagation: Propagation
+#     grafting: String
+#     pests: [Pests]
+#     diseases: [Diseases]
+#     availability: String
+# }
+
+# #*TREE CARE*#
+# type Care {
+#     repotting: String!
+#     medium: Medium!
+#     light_pruning: String!
+#     heavy_pruning: String!
+#     wiring: String!
+#     fertilizer: {
+#         interval: String!
+#         time_of_year: String!
+#         fertilizer_type: String
+#     }
+#     placement: String!
+#     watering: String!
+#     other: String
+# }
+# type Medium {
+#     id: ID!
+#     medium: String!
+# }
+# type Propagation {
+#     cutting: String
+#     seed: String
+# }
+
+# #*PESTS AND DISEASES*#
+# type Pests {
+#     id: ID!
+#     name: String!
+#     identification: String
+# }
+# type Diseases {
+#     id: ID!
+#     name: String!
+#     identification: String
+# }
+
+# #*CHARACTERISTICS*#
+# type Characteristics {
+#     fruit: Boolean
+#     flowering: Boolean
+#     leafs: String
+#     deciduous: Boolean!
+#     evergreen: Boolean!
+#     bark: String
+#     other: String
+# }
