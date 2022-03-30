@@ -1,5 +1,5 @@
-# BonsaiGraphQL
-A Bonsai GraphQL server which uses .graphql files to define its schema. Stores data in mongodb.
+> # BonsAPI (Pronounced: Bonsai-Pie)
+A Bonsai GraphQL server with a database of usable speceis for bonsai cultivation. The program uses .graphql files to define its schema. Data is stored in mongodb.
 
 Auth Token:
 To get the authorization token, make a login request with your credentials.
