@@ -3,6 +3,10 @@
 type Tree {
     _id: ID!
     name: String!
+    conifer: Boolean
+    broadleaf: Boolean
+    evergreen: Boolean
+    deciduous: Boolean
     creator: User!
 }
 
@@ -20,7 +24,11 @@ type AuthData {
 }
 
 input TreeInput {
-    name: String! 
+    name: String!
+    conifer: Boolean!
+    broadleaf: Boolean!
+    evergreen: Boolean!
+    deciduous: Boolean!
 }
 
 input UserInput {
@@ -42,7 +50,6 @@ schema {
     query: RootQuery
     mutation: RootMutation
 }
-    
 
 
 # #*TREE GROUPS*#

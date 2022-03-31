@@ -25,6 +25,10 @@ module.exports = {
 
         const tree = new Tree({
             name: args.treeInput.name,
+            conifer: args.treeInput.conifer,
+            broadleaf: args.treeInput.broadleaf,
+            evergreen: args.treeInput.evergreen,
+            deciduous: args.treeInput.deciduous,
             creator: req.userId
         });
 
